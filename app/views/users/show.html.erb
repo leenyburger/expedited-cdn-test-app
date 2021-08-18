@@ -2,7 +2,8 @@
 <%= image_tag (@user.avatar), width: 500, height: 500 %>
 
 <%#= image_tag cdn_image_url(@user.avatar), width: 100, height: 100 %>
-<%= image_tag rails_storage_proxy_path(@user.avatar), height: 100, width: 100 %>
+<%#= image_tag rails_storage_proxy_path(@user.avatar), height: 100, width: 100 %>
+<%= image_tag rails_storage_proxy_url(@user.avatar, host: Rails.application.credentials.dig(:CDN_HOST), protocol: "https")
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
